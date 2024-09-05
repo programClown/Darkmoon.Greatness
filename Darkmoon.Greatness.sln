@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Darkmoon.Greatness", "Darkmoon.Greatness\Darkmoon.Greatness.csproj", "{AF1DAF2C-5C83-406C-BC18-6853FECEDCB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Darkmoon.Greatness.Core", "Darkmoon.Greatness.Core\Darkmoon.Greatness.Core.csproj", "{8332A190-8FB7-434B-B03B-E2244BC125EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{AF1DAF2C-5C83-406C-BC18-6853FECEDCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF1DAF2C-5C83-406C-BC18-6853FECEDCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF1DAF2C-5C83-406C-BC18-6853FECEDCB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8332A190-8FB7-434B-B03B-E2244BC125EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8332A190-8FB7-434B-B03B-E2244BC125EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8332A190-8FB7-434B-B03B-E2244BC125EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8332A190-8FB7-434B-B03B-E2244BC125EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

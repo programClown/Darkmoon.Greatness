@@ -18,6 +18,27 @@
         <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
+        <PackageReference Include="AvaloniaEdit.TextMate" Version="11.1.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2"/>
+        <PackageReference Include="FluentIcons.Avalonia" Version="1.1.256-ci" />
+        <PackageReference Include="FluentIcons.Avalonia.Fluent" Version="1.1.256-ci" />
+        <PackageReference Include="Irihi.Ursa" Version="1.2.0" />
+        <PackageReference Include="Irihi.Ursa.Themes.Semi" Version="1.2.0" />
+        <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
+        <PackageReference Include="NLog" Version="5.3.3" />
+        <PackageReference Include="NLog.Extensions.Logging" Version="5.3.12" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0"/>
+        <PackageReference Include="Semi.Avalonia" Version="11.1.0.3" />
+        <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.1.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Darkmoon.Greatness.Core\Darkmoon.Greatness.Core.csproj" />
     </ItemGroup>
 </Project>
