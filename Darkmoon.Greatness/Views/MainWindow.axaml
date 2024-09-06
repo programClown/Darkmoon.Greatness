@@ -2,29 +2,103 @@
     x:Class="Darkmoon.Greatness.Views.MainWindow"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Darkmoon.Greatness.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fluentIcons="clr-namespace:FluentIcons.Avalonia.Fluent;assembly=FluentIcons.Avalonia.Fluent"
+    xmlns:local="clr-namespace:Darkmoon.Greatness"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:u="https://irihi.tech/ursa"
+    xmlns:views="clr-namespace:Darkmoon.Greatness.Views"
     xmlns:vm="using:Darkmoon.Greatness.ViewModels"
-    Title="AI·暗月·卡片"
+    Title="AI·暗月卡片伟大"
     d:DesignHeight="450"
     d:DesignWidth="800"
     x:DataType="vm:MainWindowViewModel"
     Icon="/Assets/logo.png"
     IsFullScreenButtonVisible="{OnPlatform True,
                                            macOS=False}"
+    TitleBarMargin="50 0 0 0"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     mc:Ignorable="d">
 
+    <u:UrsaWindow.Resources>
+        <converters:IconNameToPathConverter x:Key="IconConverter" />
+    </u:UrsaWindow.Resources>
+
     <u:UrsaWindow.RightContent>
-        <u:ThemeToggleButton IsThreeState="True" Mode="Controller" />
+        <views:TitleBarRightContent />
     </u:UrsaWindow.RightContent>
+
     <u:UrsaWindow.TitleBarContent>
         <TextBlock
             Margin="200,0,0,0"
-            Text="Office Tools"
+            Text="AI·暗月卡片伟大"
             TextAlignment="Center" />
     </u:UrsaWindow.TitleBarContent>
+
+    <Panel>
+        <Panel.Styles>
+            <Style Selector="Grid.Blur">
+                <Setter Property="Effect" Value="blur(10)">
+                </Setter>
+            </Style>
+        </Panel.Styles>
+
+        <Grid Classes.Blur="{Binding $parent[u:UrsaWindow].(u:OverlayDialogHost.IsInModalStatus)}" RowDefinitions="Auto, *">
+            <StackPanel
+                Grid.Row="0"
+                Margin="4"
+                Orientation="Horizontal"
+                Spacing="4">
+                <Button
+                    Classes="Tertiary"
+                    Theme="{DynamicResource BorderlessButton}"
+                    ToolTip.Tip="打开导航">
+                    <fluentIcons:SymbolIcon
+                        Width="24"
+                        Height="24"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Symbol="Navigation" />
+                </Button>
+                <Image
+                    Width="24"
+                    Height="24"
+                    u:NavMenu.CanToggle="True"
+                    RenderOptions.BitmapInterpolationMode="HighQuality"
+                    Source="/Assets/logo.png" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Text="AI·暗月卡片伟大"
+                    Theme="{DynamicResource TitleTextBlock}" />
+            </StackPanel>
+
+            <Grid
+                Grid.Row="1"
+                Margin="4"
+                ColumnDefinitions="Auto, *">
+
+                <u:NavMenu
+                    Name="menu"
+                    Grid.Column="0"
+                    ExpandWidth="200"
+                    HeaderBinding="{Binding Header}"
+                    IconBinding="{Binding IconName}"
+                    ItemsSource="{Binding MenuItems}"
+                    SelectedItem="{Binding SelectedMenuItem}"
+                    SubMenuBinding="{Binding Children}">
+                </u:NavMenu>
+                <ContentControl
+                    Grid.Column="1"
+                    Margin="12,36,12,12"
+                    Content="">
+                    <ContentControl.ContentTemplate>
+                        <local:ViewLocator />
+                    </ContentControl.ContentTemplate>
+                </ContentControl>
+            </Grid>
+        </Grid>
+
+    </Panel>
 
 </u:UrsaWindow>
